@@ -1,0 +1,20 @@
+/src/main/resources/password.properties
+# Misc
+.DS_Store
+*.swp
+
+.settings/
+.classpath
+.project
+.properties
+
+*.iml
+.allure
+.idea
+**/target/
+**/out/
+.gradle
+**/build/
+derby.log
+work/
+
