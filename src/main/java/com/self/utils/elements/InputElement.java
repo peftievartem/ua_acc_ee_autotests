@@ -15,6 +15,13 @@ public class InputElement {
     private static final String baseInputMonetaryPath = "//div[@name='%s' and (contains(@class,'o_field_monetary'))]/input";
     private static final String dropdownActiveOptionPath = "//ul[contains(@style,'block')]/child::li[contains(@class,'dropdown_option')]/a[text()='%s']";
     private static final String modalInputWithNameAttributePath = "//*[@class='modal-content']/descendant::input[@name='%s']";
+
+    public static void setInput(String attributeValue, String inputValue) {
+        commonMethods.waitForPageToLoad();
+        commonMethods.waitAndSendText(baseElementLocator.getWebElement("Xpath",
+                attributeValue), inputValue);
+    }
+
     public static void setInputWithNameAttribute(String attributeValue, String inputValue) {
         commonMethods.waitForPageToLoad();
         commonMethods.waitAndSendText(baseElementLocator.getWebElement("Name",
@@ -44,6 +51,11 @@ public class InputElement {
                 String.format(baseDateTimePickerInputPath, attributeValue1, attributeValue2)), inputValue);
     }
 
+    public static void setInputForDateTimePickerXpath(String attributeValue, String inputValue) {
+        commonMethods.waitForPageToLoad();
+        commonMethods.waitAndSendText(baseElementLocator.getWebElement("Xpath", attributeValue), inputValue);
+    }
+
     public static void setInputDropdown(String attributeValue, String inputValue) {
         commonMethods.waitForPageToLoad();
         commonMethods.waitAndSelectTextFromList(baseElementLocator.getWebElement("Xpath",
@@ -67,6 +79,12 @@ public class InputElement {
         commonMethods.waitAndSelectTextFromList(baseElementLocator.getWebElement("Xpath",
                         String.format(baseDropdownInputPath,
                                 attributeValue, attributeValue)),
+                null, inputValue);
+    }
+
+    public static void setInputDropdownWithoutButtonByXpath(String attributeValue, String inputValue) {
+        commonMethods.waitForPageToLoad();
+        commonMethods.waitAndSelectTextFromList(baseElementLocator.getWebElement("Xpath", attributeValue),
                 null, inputValue);
     }
 

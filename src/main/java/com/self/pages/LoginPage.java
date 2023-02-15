@@ -5,6 +5,7 @@ import com.self.utils.World;
 import com.self.utils.elements.ButtonElement;
 import com.self.utils.elements.DropDownElement;
 import com.self.utils.elements.InputElement;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,7 +48,8 @@ public class LoginPage extends CommonPage {
     }
 
     public void logoutMethod() {
-        settingsPage.getTopbarNamePath().click();
-        DropDownElement.selectSimpleDropDownValue("Log out");
+        commonMethods.waitForPageToLoad();
+        baseElementLocator.getWebElement("ClassName", "o_user_menu").click();
+        baseElementLocator.getWebElement("Xpath", "//a[@data-menu='logout']").click();
     }
 }

@@ -3,8 +3,9 @@
 <suite name="Test Suite">
     <test name="User test">
         <classes>
-            <class name="test.Inventory.InventoryTest"/>
-<!--            <class name="test.RemoveDataTest"/>-->
+            <class name="test.Accounting.ContractTest"/>
+<!--            <class name="test.Sales.OrderTest"/>-->
+<!--            <class name="test.Inventory.InventoryTest"/>-->
         </classes>
     </test>
 </suite>

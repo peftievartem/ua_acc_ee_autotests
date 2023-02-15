@@ -17,6 +17,10 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.self.utils.Constants.APPS_URL;
+import static com.self.utils.Constants.BASE_URL;
+import static java.lang.Thread.sleep;
+
 public class CommonPage extends BasePage {
 
     CommonMethods commonMethods = new CommonMethods();
@@ -99,7 +103,7 @@ public class CommonPage extends BasePage {
     public WebElement getTopbarNamePath() {
         commonMethods.waitForPageToLoad();
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -209,6 +213,16 @@ public class CommonPage extends BasePage {
         commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(linkClassItemPath, linkClass)));
     }
 
+    public WebElement getElementByXpath(String xpath) throws InterruptedException {
+        this.waitForPageToLoad();
+        return baseElementLocator.getWebElement("Xpath", xpath);
+    }
+
+    public void clickOnLinkByXpath(String linkXpath) throws InterruptedException {
+        waitForPageToLoad();
+        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", linkXpath));
+    }
+
     public void selectKanbanAction(String actionName) {
         commonMethods.waitForPageToLoad();
         commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", kanbanRecordToggleButtonPath));
@@ -255,5 +269,14 @@ public class CommonPage extends BasePage {
 
     public String getWebElementTextByName(String name) {
         return baseElementLocator.getWebElement("Name", name).getText();
+    }
+
+    public void waitForPageToLoad() throws InterruptedException {
+        commonMethods.waitForPageToLoad();
+        sleep(1000);
+    }
+
+    public void gotoAppsPage() {
+        World.driver.get(APPS_URL);
     }
 }

@@ -11,6 +11,7 @@ public class ButtonElement {
 
     private static final String baseButtonPath = "//button[contains(text(),'%s') and not (contains(@class,'o_invisible'))]";
 
+    private static final String baseButtonClassPath = "//button[(contains(@class,'%s')) and not (contains(@class,'o_invisible'))]";
     private static final String buttonWithTypeAttributePath = "//button[@type='%s']";
     private static final String modalButton = "//*[@class='modal-content']/descendant::span[text()='%s']";
     private static final String baseButtonBoxPath = "//button/descendant::span[contains(text(),'%s')]";
@@ -25,6 +26,21 @@ public class ButtonElement {
         commonMethods.waitForPageToLoad();
         commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath",
                 String.format(baseButtonPath, buttonName)));
+        commonMethods.waitForPageToLoad();
+    }
+
+    @Step("Click on button")
+    public static void clickOnButtonByClass(String buttonName) {
+        commonMethods.waitForPageToLoad();
+        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath",
+                String.format(baseButtonClassPath, buttonName)));
+        commonMethods.waitForPageToLoad();
+    }
+
+    @Step("Click on button")
+    public static void clickOnButtonXpath(String attribute) {
+        commonMethods.waitForPageToLoad();
+        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", attribute));
         commonMethods.waitForPageToLoad();
     }
 

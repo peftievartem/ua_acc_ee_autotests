@@ -9,7 +9,8 @@ public class Constants {
     public static final String USER_LOGIN_SUPER_ADMIN = FileReaderManager.getInstance().getConfigReader().getUserNameSuperAdmin();
     public static final String USER_LOGIN_LOCAL_ADMIN = FileReaderManager.getInstance().getConfigReader().getUserNameLocalAdmin();
     public static final String USER_PASSWORD = FileReaderManager.getInstance().getConfigReader().getPassword();
-    public static final String BASE_URL= FileReaderManager.getInstance().getConfigReader().getApplicationUrl();
+    public static final String BASE_URL= FileReaderManager.getInstance().getConfigReader().getBaseUrl();
+    public static final String APPS_URL= FileReaderManager.getInstance().getConfigReader().getApplicationsUrl();
 
 
     public static final int EXPLICIT_WAIT_TIMEOUT = FileReaderManager.getInstance().getConfigReader().getExplicitWaitSec();

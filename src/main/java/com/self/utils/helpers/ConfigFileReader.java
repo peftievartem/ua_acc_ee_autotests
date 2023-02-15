@@ -20,12 +20,21 @@ public class ConfigFileReader {
         }
     }
 
-    public String getApplicationUrl() {
+    public String getBaseUrl() {
         String url = this.properties.getProperty("baseUrl");
         if (url != null) {
             return url;
         } else {
-            throw new RuntimeException("Application Url is not specified in the cukes.properties file.");
+            throw new RuntimeException("Base Url is not specified in the cukes.properties file.");
+        }
+    }
+
+    public String getApplicationsUrl() {
+        String url = this.properties.getProperty("appsUrl");
+        if (url != null) {
+            return url;
+        } else {
+            throw new RuntimeException("Base Url is not specified in the cukes.properties file.");
         }
     }
 
