@@ -50,4 +50,31 @@ public class Constants {
     public static final String constantsPeriodName = "2022 Period #1";
     //endregion
 
+
+    //content test data
+    public static final String constantCompanyAzure = "Azure Interior";
+    public static final String constantCompanyDecoAddict = "Deco Addict";
+    public static final String constantVendorMitchellAdmin = "Mitchell Admin";
+    public static final String constantProduct1 = "[FURN_5555] Cable Management Box";
+    public static final String constantService1 = "Down payment";
+
+
+    //test to translate
+    public static final String additionalInfo = "Additional Info";
+    public static final String addAProduct = "Add a product";
+    public static final String addALine = "Add a line";
+    public static final String vydatkovaNakladna = "Vydatkova nakladna";
+    public static final String aktVykonanykhRobit = "Akt vykonanykh robit";
+    public static final String rakhunokNaOplatu = "Rakhunok na oplatu";
+    public static final String bank = "Bank";
+    public static final String days15 = "15 Days";
+
+
+    // to translate //a/span[text()='']");
+
+    //to translate "//input[@id='payment_term_id']", "");
+
+
+
+
 }

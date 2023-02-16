@@ -49,7 +49,7 @@ public class LoginPage extends CommonPage {
 
     public void logoutMethod() {
         commonMethods.waitForPageToLoad();
-        baseElementLocator.getWebElement("ClassName", "o_user_menu").click();
+        baseElementLocator.getWebElement("Xpath",  "//div[contains(@class,'o_user_menu')]/button").click();
         baseElementLocator.getWebElement("Xpath", "//a[@data-menu='logout']").click();
     }
 }

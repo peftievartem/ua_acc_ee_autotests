@@ -1,18 +1,14 @@
 package test.Sales;
 
 import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.DropDownElement;
 import com.self.utils.elements.InputElement;
+import com.self.utils.elements.RadioButtonElement;
 import io.qameta.allure.Description;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
-import org.openqa.selenium.Keys;
 
 import static com.self.utils.Constants.*;
-import static test.Sales.SalesTestData.salesPricelistName;
-import static test.Sales.SalesTestData.salesPricelistOtherCurrencyName;
 
 public class OrderTest extends BaseTest {
 
@@ -23,10 +19,10 @@ public class OrderTest extends BaseTest {
         commonPage.selectPageInTopBarMenuByDataXmlId("sale.sale_order_menu", "sale.menu_sale_order");
         commonPage.waitForPageToLoad();
         ButtonElement.clickOnButtonByClass("o_list_button_add");
-        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", "Deco Addict");
+        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyDecoAddict);
 
-        baseElementLocator.getWebElement("Xpath", "//table/descendant::*[text()='Add a product']").click();
-        InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", "[FURN_6666] Acoustic Bloc Screens");
+        baseElementLocator.getWebElement("Xpath", "//table/descendant::*[text()='" + addAProduct + "']").click();
+        InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", constantProduct1);
 
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", "1000");
 
@@ -37,12 +33,9 @@ public class OrderTest extends BaseTest {
         commonPage.waitForPageToLoad();
         String orderName =  baseElementLocator.getWebElement("Xpath", "//h1/div[@name='name']").getText();
 
-        ButtonElement.clickOnButtonXpath("//button[@id='create_invoice_percentage']");
-
-        InputElement.setInput("//input[@id='amount']", "50");
+        ButtonElement.clickOnButtonXpath("//button[@id='create_invoice']");
+        RadioButtonElement.selectRadioButtonByDataValue("delivered");
         ButtonElement.clickOnButtonXpath("//button[@id='create_invoice_open']");
-
-        ButtonElement.clickOnButtonXpath("//button[@id='create_invoice_percentage']");
 
         ButtonElement.clickOnButtonXpath("//button[@name='action_post']");
 
