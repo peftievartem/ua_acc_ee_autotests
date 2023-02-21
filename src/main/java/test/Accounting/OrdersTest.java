@@ -29,7 +29,6 @@ public class OrdersTest extends BaseTest {
         ButtonElement.clickOnButtonByClass("o_list_button_add");
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
         InputElement.setInputForDateTimePickerXpath("//input[@id='date_start']", commonPage.getDate(0));
-        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='payment_term_id']", days15);
         ButtonElement.clickOnButtonByClass("o_form_button_save");
         commonPage.waitForPageToLoad();
 
@@ -163,7 +162,6 @@ public class OrdersTest extends BaseTest {
         ButtonElement.clickOnButtonByClass("o_list_button_add");
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyDecoAddict);
         InputElement.setInputForDateTimePickerXpath("//input[@id='date_start']", commonPage.getDate(0));
-        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='payment_term_id']", days15);
         ButtonElement.clickOnButtonByClass("o_form_button_save");
         commonPage.waitForPageToLoad();
 
@@ -221,7 +219,6 @@ public class OrdersTest extends BaseTest {
         ButtonElement.clickOnButtonByClass("o_list_button_add");
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyDecoAddict);
         InputElement.setInputForDateTimePickerXpath("//input[@id='date_start']", commonPage.getDate(0));
-        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='payment_term_id']", days15);
         ButtonElement.clickOnButtonByClass("o_form_button_save");
         commonPage.waitForPageToLoad();
 

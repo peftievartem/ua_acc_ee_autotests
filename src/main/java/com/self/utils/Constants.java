@@ -52,22 +52,25 @@ public class Constants {
 
 
     //content test data
-    public static final String constantCompanyAzure = "Azure Interior";
-    public static final String constantCompanyDecoAddict = "Deco Addict";
-    public static final String constantVendorMitchellAdmin = "Mitchell Admin";
-    public static final String constantProduct1 = "[FURN_5555] Cable Management Box";
-    public static final String constantService1 = "Down payment";
+    public static final String constantCompanyAzure = "Епіцентр К";
+    public static final String constantCompanyDecoAddict = "ТОВ Зелена трава";
+    public static final String constantVendorMitchellAdmin = "Ростислав Дзвін";
+    public static final String constantProduct1 = "[E-COM10] Відро для сміття з педаллю";
+    public static final String constantProduct2 = "[FURN_8888] Офісна лампа";
+    public static final String constantService1 = "Витрати на ресторан";
+    public static final String constantService2 = "Проживання в отелі";
+    public static final int price1 = (int) (Math.random()*1000)*10;
+    public static final int price2 = (int) (Math.random()*1000)*10;
 
 
     //test to translate
-    public static final String additionalInfo = "Additional Info";
-    public static final String addAProduct = "Add a product";
-    public static final String addALine = "Add a line";
-    public static final String vydatkovaNakladna = "Vydatkova nakladna";
-    public static final String aktVykonanykhRobit = "Akt vykonanykh robit";
-    public static final String rakhunokNaOplatu = "Rakhunok na oplatu";
-    public static final String bank = "Bank";
-    public static final String days15 = "15 Days";
+    public static final String additionalInfo = "Інша інформація";
+    public static final String addAProduct = "Додати товар";
+    public static final String addALine = "Додати рядок";
+    public static final String vydatkovaNakladna = "Видаткова накладна";
+    public static final String aktVykonanykhRobit = "Акт виконаних робіт";
+    public static final String rakhunokNaOplatu = "Рахунок на оплату";
+    public static final String bank = "Банк Аваль";
 
 
     // to translate //a/span[text()='']");
