@@ -1,4 +1,4 @@
-package test.Sales;
+package test.Sale;
 
 import static com.self.utils.Constants.RANDOM_NUM;
 

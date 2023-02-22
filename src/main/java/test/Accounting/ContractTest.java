@@ -125,7 +125,7 @@ public class ContractTest extends BaseTest {
         commonPage.waitForPageToLoad();
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addAProduct + "']");
         commonPage.waitForPageToLoad();
-        InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", constantProduct2);
+        InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", constantProduct1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
         InputElement.setInputForDateTimePickerXpath("//input[@id='validity_date']", commonPage.getDate(0));
         ButtonElement.clickOnButtonXpath("//button[@name='action_confirm']");

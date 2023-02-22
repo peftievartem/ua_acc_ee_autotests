@@ -6,8 +6,9 @@
 <!--            <class name="test.PrepareTests"></class>-->
 <!--            <class name="test.CompareReport"/>-->
 <!--            <class name="test.SaleReports"/>-->
-            <class name="test.Accounting.ContractTest"/>
-<!--            <class name="test.Sales.OrderTest"/>-->
+<!--            <class name="test.Accounting.ContractTest"/>-->
+<!--            <class name="test.Sale.OrderTest"/>-->
+                <class name="test.Purchase.PurchaseOrderTest"/>
 <!--            <class name="test.Inventory.InventoryTest"/>-->
 
 <!--            <class name="test.Accounting.AccountablePersons"/>-->
