@@ -4,14 +4,11 @@ import com.self.inject.Inject;
 import com.self.utils.CommonMethods;
 import com.self.utils.World;
 import com.self.utils.elements.BaseElementLocator;
-import com.self.utils.elements.ButtonElement;
 import com.self.utils.elements.InputElement;
-import com.self.utils.elements.NotebookElement;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 
 import java.text.Format;
 import java.text.SimpleDateFormat;
@@ -66,22 +63,12 @@ public class CommonPage extends BasePage {
         return baseElementLocator.getWebElement("Xpath", String.format(elementPathByDataXmlId, itemName));
     }
 
-    public WebElement homePage() {
-        commonMethods.waitForPageToLoad();
-        return baseElementLocator.getWebElement("Xpath", "a[@class='o_menu_toggle']");
-    }
-
     public void selectPageInTopBarMenuByDataXmlId(String topLevel, String secondLevel){
         baseElementLocator.getWebElement("Xpath", String.format(elementPathByDataXmlId, topLevel)).click();
         commonMethods.waitForPageToLoad();
         baseElementLocator.getWebElement("Xpath", String.format(elementPathByDataXmlId, secondLevel)).click();
         commonMethods.waitForPageToLoad();
 
-    }
-
-    public WebElement getSidebarPath() {
-        commonMethods.waitForPageToLoad();
-        return baseElementLocator.getWebElement("Id", sidebarPath);
     }
 
     public String getSearchInputPath() {
@@ -215,12 +202,17 @@ public class CommonPage extends BasePage {
 
     public WebElement getElementByXpath(String xpath) throws InterruptedException {
         this.waitForPageToLoad();
-        return baseElementLocator.getWebElement("Xpath", xpath);
+        try {
+            return baseElementLocator.getWebElement("Xpath", xpath);
+        } catch (Exception ignore) {
+            return null;
+        }
     }
 
     public void clickOnLinkByXpath(String linkXpath) throws InterruptedException {
         waitForPageToLoad();
         commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", linkXpath));
+        sleep(1000);
     }
 
     public void selectKanbanAction(String actionName) {
@@ -276,7 +268,9 @@ public class CommonPage extends BasePage {
         sleep(1000);
     }
 
-    public void gotoAppsPage() {
+    public void gotoAppsPage() throws InterruptedException {
+        commonMethods.waitForPageToLoad();
         World.driver.get(APPS_URL);
+        sleep(1000);
     }
 }

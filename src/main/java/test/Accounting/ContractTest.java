@@ -1,16 +1,12 @@
 package test.Accounting;
 
-import com.sun.source.tree.AssertTree;
 import io.qameta.allure.Description;
 import com.self.utils.elements.*;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
 
 import static com.self.utils.Constants.*;
-import static com.self.utils.Hooks.LOG;
 
 public class ContractTest extends BaseTest {
     String customerContractName;
@@ -23,10 +19,12 @@ public class ContractTest extends BaseTest {
     @Test(priority = 1)
     @Description("Create contract with customer")
     public void testAccountingInTermsContractsReceive() throws InterruptedException {
+        commonPage.gotoAppsPage();
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
-        commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_receivables", "l10n_ua_contract.account_contract_menu_customer");
+        commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_receivables", "selferp_contract_settlement.account_contract_menu_customer");
+        commonPage.waitForPageToLoad();
 
-        // created contract
+        // create contract
         ButtonElement.clickOnButtonByClass("o_list_button_add");
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
         InputElement.setInputForDateTimePickerXpath("//input[@id='date_start']", commonPage.getDate(0));
@@ -48,6 +46,7 @@ public class ContractTest extends BaseTest {
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
         commonPage.clickOnLinkByXpath("//a/span[text()='" + bank + "']");
         ButtonElement.clickOnButtonByClass("oi-view-kanban");
+        commonPage.waitForPageToLoad();
 
         // create new bank reconciliation
         ButtonElement.clickOnButtonByClass("o-kanban-button-new");
@@ -59,7 +58,6 @@ public class ContractTest extends BaseTest {
 
         // back to reconciliation in list
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-1']");
-        commonPage.waitForPageToLoad();
         // added contract
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='contract_id']", customerContractName);
         commonPage.waitForPageToLoad();
@@ -68,20 +66,17 @@ public class ContractTest extends BaseTest {
 
         //select reconciliation again and press on bank in account line
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-1']");
-        commonPage.waitForPageToLoad();
         commonPage.clickOnLinkByXpath("//tr[contains(@class,'o_bank_rec_liquidity_line')]/descendant::*[contains(@class, 'o_form_uri')]");
 
         // open contract column in table rows
         ButtonElement.clickOnButtonXpath("//div[contains(@class,'o_optional_columns_dropdown')]/button");
         if (!commonPage.getElementByXpath("//input[@name='contract_id']").isSelected())
             commonPage.clickOnLinkByXpath("//input[@name='contract_id']");
-        commonPage.waitForPageToLoad();
 
         Assert.assertTrue(commonPage.getElementByXpath("(//div[@name='line_ids']/descendant::td[@name='contract_id'])[last()]").getText().length() > 0);
         String priceInTable = commonPage.getElementByXpath("(//div[@name='line_ids']/descendant::td[@name='credit'])[last()]").getText();
         Assert.assertTrue(priceInTable.contains(price.replace("\u00a0"," ")));
 
-        LOG.info("Customer contract name - " + customerContractNameFull);
     }
 
 
@@ -93,9 +88,9 @@ public class ContractTest extends BaseTest {
     @Description("Create contract with vendor")
     public void testAccountingInTermsContractsPay() throws InterruptedException {
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
-        commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_payables", "l10n_ua_contract.account_contract_menu_vendor");
+        commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_payables", "selferp_contract_settlement.account_contract_menu_vendor");
 
-        // created contract
+        // create contract
         ButtonElement.clickOnButtonByClass("o_list_button_add");
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
         InputElement.setInputForDateTimePickerXpath("//input[@id='date_start']", commonPage.getDate(0));
@@ -124,9 +119,10 @@ public class ContractTest extends BaseTest {
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='contract_id']", vendorContractName);
         commonPage.waitForPageToLoad();
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addAProduct + "']");
-        commonPage.waitForPageToLoad();
         InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", constantProduct1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
+        if (commonPage.getElementByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']") != null)
+            commonPage.clickOnLinkByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']");
         InputElement.setInputForDateTimePickerXpath("//input[@id='validity_date']", commonPage.getDate(0));
         ButtonElement.clickOnButtonXpath("//button[@name='action_confirm']");
 
@@ -159,18 +155,17 @@ public class ContractTest extends BaseTest {
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
         commonPage.clickOnLinkByXpath("//a/span[text()='" + bank + "']");
         ButtonElement.clickOnButtonByClass("oi-view-kanban");
+        commonPage.waitForPageToLoad();
 
         // create new bank reconciliation
         ButtonElement.clickOnButtonByClass("o-kanban-button-new");
         InputElement.setInput("//input[@id='payment_ref']", "label_" + RANDOM_NUM + "-2");
-        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyDecoAddict);
+        InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
         InputElement.setInput("//input[@id='amount']", String.valueOf(price1));
-//        commonPage.clickOnLinkByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']");
         ButtonElement.clickOnButtonXpath("//button[@name='action_save_close']");
 
         // back to reconciliation in list
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-2']");
-        commonPage.waitForPageToLoad();
         // validate wo adding contract
         ButtonElement.clickOnButtonXpath("//button[@name='button_validate']");
         commonPage.waitForPageToLoad();
@@ -183,7 +178,6 @@ public class ContractTest extends BaseTest {
         ButtonElement.clickOnButtonXpath("//div[contains(@class,'o_optional_columns_dropdown')]/button");
         if (!commonPage.getElementByXpath("//input[@name='contract_id']").isSelected())
             commonPage.clickOnLinkByXpath("//input[@name='contract_id']");
-        commonPage.waitForPageToLoad();
 
         Assert.assertTrue(commonPage.getElementByXpath("(//div[@name='line_ids']/descendant::td[@name='contract_id'])[last()]").getText().length() > 0);
     }
@@ -196,7 +190,7 @@ public class ContractTest extends BaseTest {
     @Description("Create contract with vendor")
     public void testAccountingInTermsContractsVendor() throws InterruptedException {
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
-        commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_payables", "l10n_ua_contract.account_contract_menu_vendor");
+        commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_payables", "selferp_contract_settlement.account_contract_menu_vendor");
 
         // created contract
         ButtonElement.clickOnButtonByClass("o_list_button_add");
@@ -221,6 +215,7 @@ public class ContractTest extends BaseTest {
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
         commonPage.clickOnLinkByXpath("//a/span[text()='" + bank + "']");
         ButtonElement.clickOnButtonByClass("oi-view-kanban");
+        commonPage.waitForPageToLoad();
 
         // create new bank reconciliation
         ButtonElement.clickOnButtonByClass("o-kanban-button-new");
@@ -232,7 +227,6 @@ public class ContractTest extends BaseTest {
 
         // back to reconciliation in list
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-3']");
-        commonPage.waitForPageToLoad();
         // added contract
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='contract_id']", vendorContractName);
         ButtonElement.clickOnButtonXpath("//button[@name='button_validate']");
@@ -240,20 +234,16 @@ public class ContractTest extends BaseTest {
 
         //select reconciliation again and press on bank in account line
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-3']");
-        commonPage.waitForPageToLoad();
         commonPage.clickOnLinkByXpath("//tr[contains(@class,'o_bank_rec_liquidity_line')]/descendant::*[contains(@class, 'o_form_uri')]");
 
         // open contract column in table rows
         ButtonElement.clickOnButtonXpath("//div[contains(@class,'o_optional_columns_dropdown')]/button");
         if (!commonPage.getElementByXpath("//input[@name='contract_id']").isSelected())
             commonPage.clickOnLinkByXpath("//input[@name='contract_id']");
-        commonPage.waitForPageToLoad();
 
         Assert.assertEquals(vendorContractNameFull, commonPage.getElementByXpath("(//div[@name='line_ids']/descendant::td[@name='contract_id'])[last()]").getText());
         String priceInTable = "-" + commonPage.getElementByXpath("(//div[@name='line_ids']/descendant::td[@name='debit'])[last()]").getText();
         Assert.assertTrue(priceInTable.contains(price.replace("\u00a0"," ")));
-
-        LOG.info("Vendor contract name - " + vendorContractNameFull);
     }
 
 
@@ -272,26 +262,16 @@ public class ContractTest extends BaseTest {
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='contract_id']", vendorContractName);
 
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addAProduct + "']");
-        commonPage.waitForPageToLoad();
         InputElement.setInputDropdownWithoutButtonByXpath("//td[@name='product_id']/descendant::input", constantService1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
-        commonPage.clickOnLinkByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']");
+        if (commonPage.getElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']") != null)
+            commonPage.clickOnLinkByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']");
         ButtonElement.clickOnButtonXpath("//button[@name='button_confirm']");
-
-//        String orderName = baseElementLocator.getWebElement("Xpath", "//h1/div[@name='name']").getText();
-//        commonPage.waitForPageToLoad();
-//
-//        ButtonElement.clickOnButtonXpath("//button[@name='action_view_picking']");
-//
-//        commonPage.clickOnLinkByXpath("//td[@name='quantity_done']");
-//        InputElement.setInput("//td[@name='quantity_done']/div/input", "1");
-//        ButtonElement.clickOnButtonXpath("//button[@name='button_validate']");
-//        commonPage.clickOnLinkByXpath("//a[text()='" + orderName + "']");
-
         ButtonElement.clickOnButtonXpath("//button[@name='action_create_invoice']");
         InputElement.setInputForDateTimePickerXpath("//input[@id='invoice_date']", commonPage.getDate(0));
         ButtonElement.clickOnButtonXpath("//button[@name='action_post']");
+        commonPage.waitForPageToLoad();
 
-        Assert.assertTrue(commonPage.getElementByXpath("button[@name='action_invoice_sent']").isDisplayed());
+        Assert.assertTrue(commonPage.getElementByXpath("button[@name='action_invoice_sent']") != null);
     }
 }

@@ -28,10 +28,10 @@ public class OrderTest extends BaseTest {
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
 
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addAProduct + "']");
-        commonPage.waitForPageToLoad();
         InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", constantProduct1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
-        commonPage.clickOnLinkByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']");
+        if (commonPage.getElementByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']") != null)
+            commonPage.clickOnLinkByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']");
         InputElement.setInputForDateTimePickerXpath("//input[@id='validity_date']", commonPage.getDate(0));
         ButtonElement.clickOnButtonXpath("//button[@name='action_confirm']");
 
@@ -67,18 +67,17 @@ public class OrderTest extends BaseTest {
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='account_accountant.menu_accounting']");
         commonPage.clickOnLinkByXpath("//a/span[text()='" + bank + "']");
         ButtonElement.clickOnButtonByClass("oi-view-kanban");
+        commonPage.waitForPageToLoad();
 
         // create new bank reconciliation
         ButtonElement.clickOnButtonByClass("o-kanban-button-new");
         InputElement.setInput("//input[@id='payment_ref']", "label_" + RANDOM_NUM + "-1");
         InputElement.setInput("//input[@id='amount']", String.valueOf(price1));
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
-        String price = commonPage.getElementByXpath("//input[@id='amount']").getAttribute("value");
         ButtonElement.clickOnButtonXpath("//button[@name='action_save_close']");
 
         // back to reconciliation in list
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-1']");
-        commonPage.waitForPageToLoad();
         ButtonElement.clickOnButtonXpath("//button[@name='button_validate']");
         commonPage.waitForPageToLoad();
 
@@ -89,8 +88,7 @@ public class OrderTest extends BaseTest {
         commonPage.waitForPageToLoad();
 
         commonPage.clickOnLinkByXpath("//td[text()='" + orderName + "']");
-        commonPage.waitForPageToLoad();
 
-        Assert.assertTrue(Integer.valueOf(commonPage.getElementByXpath("//div[@name='move_line_count']/span[@class='o_stat_info o_stat_value']").getText()) > 1);
+        Assert.assertTrue(Integer.parseInt(commonPage.getElementByXpath("//div[@name='move_line_count']/span[@class='o_stat_info o_stat_value']").getText()) > 1);
     }
 }

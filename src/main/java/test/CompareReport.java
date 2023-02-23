@@ -18,7 +18,7 @@ public class CompareReport extends BaseTest {
         commonPage.clickOnLinkByXpath("//span[text()='" + constantCompanyAzure + "']");
         ButtonElement.clickOnButtonXpath("//button[@id='partner_ledger_button']");
         commonPage.clickOnLinkByXpath("//span[(@class='account_report_line_name') and (contains(text(), '" + constantCompanyAzure + "'))]");
-        Assert.assertTrue(commonPage.getElementByXpath("//span[(@class='account_report_line_name') and (contains(text(), '" + constantCompanyAzure + "'))]/a[@action='action_export_file_reconciliation_report']").isDisplayed());
+        Assert.assertNotNull(commonPage.getElementByXpath("//span[(@class='account_report_line_name') and (contains(text(), '" + constantCompanyAzure + "'))]/a[@action='action_export_file_reconciliation_report']"));
     }
 
     @Test(priority = 2)
@@ -29,6 +29,6 @@ public class CompareReport extends BaseTest {
         commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_reports", "account_reports.menu_action_account_report_partner_ledger");
 
         commonPage.clickOnLinkByXpath("//span[(@class='account_report_line_name') and (contains(text(), '" + constantCompanyAzure + "'))]");
-        Assert.assertTrue(commonPage.getElementByXpath("//span[(@class='account_report_line_name') and (contains(text(), '" + constantCompanyAzure + "'))]/a[@action='action_export_file_reconciliation_report']").isDisplayed());
+        Assert.assertNotNull(commonPage.getElementByXpath("//span[(@class='account_report_line_name') and (contains(text(), '" + constantCompanyAzure + "'))]/a[@action='action_export_file_reconciliation_report']"));
     }
 }

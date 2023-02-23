@@ -8,10 +8,9 @@
 <!--            <class name="test.SaleReports"/>-->
 <!--            <class name="test.Accounting.ContractTest"/>-->
 <!--            <class name="test.Sale.OrderTest"/>-->
-                <class name="test.Purchase.PurchaseOrderTest"/>
-<!--            <class name="test.Inventory.InventoryTest"/>-->
-
-<!--            <class name="test.Accounting.AccountablePersons"/>-->
+<!--            <class name="test.Purchase.PurchaseOrderTest"/>-->
+            <class name="test.Inventory.InventoryTest"/>
+<!--            <class name="test.Accounting.AccountablePersons"/> 372 type doc absent-->
         </classes>
     </test>
 </suite>
