@@ -62,9 +62,11 @@ public class PurchaseOrderTest extends BaseTest {
         InputElement.setInput("//input[@id='amount']", String.valueOf(price1 * -1));
         InputElement.setInputDropdownWithoutButtonByXpath("//input[@id='partner_id']", constantCompanyAzure);
         ButtonElement.clickOnButtonXpath("//button[@name='action_save_close']");
+        commonPage.waitForPageToLoad();
 
         // back to reconciliation in list
         commonPage.clickOnLinkByXpath("//span[text()='label_" + RANDOM_NUM + "-1']");
+        commonPage.waitForPageToLoad();
         ButtonElement.clickOnButtonXpath("//button[@name='button_validate']");
         commonPage.waitForPageToLoad();
 

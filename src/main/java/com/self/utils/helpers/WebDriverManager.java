@@ -19,8 +19,8 @@ public class WebDriverManager {
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
         options.addArguments("--window-size=1920,1080");
-//        driver = new ChromeDriver(options);
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+//        driver = new ChromeDriver();
         if (FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) {
             driver.manage().window().maximize();
         }

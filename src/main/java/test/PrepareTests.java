@@ -16,6 +16,7 @@ public class PrepareTests extends BaseTest {
         commonPage.gotoAppsPage();
         commonPage.clickOnLinkByXpath("//a[@data-menu-xmlid='sale.sale_menu_root']");
         commonPage.selectPageInTopBarMenuByDataXmlId("sale.product_menu_catalog", "sale.menu_product_template_action");
+        commonPage.waitForPageToLoad();
         InputElement.setInput("//input[@class='o_searchview_input']", constantService1);
         commonPage.waitForPageToLoad();
         commonPage.getElementByXpath("//input[@class='o_searchview_input']").sendKeys(Keys.chord(Keys.ENTER));
