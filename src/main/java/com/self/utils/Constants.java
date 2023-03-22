@@ -61,7 +61,7 @@ public class Constants {
     public static final String constantService2 = "Проживання в готелі";
     public static final int price1 = (int) (Math.random()*1000)*10;
     public static final int price2 = (int) (Math.random()*1000)*10;
-    public static final String bank = "Банк";
+    public static final String bank = "Укрсиббанк";
 
 
     //test to translate
