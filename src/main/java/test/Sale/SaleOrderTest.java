@@ -10,7 +10,7 @@ import test.BaseTest;
 
 import static com.self.utils.Constants.*;
 
-public class OrderTest extends BaseTest {
+public class SaleOrderTest extends BaseTest {
 
     String orderName;
 
@@ -42,15 +42,13 @@ public class OrderTest extends BaseTest {
         commonPage.waitForPageToLoad();
         baseElementLocator.getWebElement("Xpath", "//div[@name='delivery_count']").click();
         commonPage.waitForPageToLoad();
-        baseElementLocator.getWebElement("Xpath", "//td[@name='quantity_done']").click();
-        InputElement.setInput("//td[@name='quantity_done']/div/input", "1");
+        baseElementLocator.getWebElement("Xpath", "//td[@name='qty_done']").click();
+        InputElement.setInput("//td[@name='qty_done']/div/input", "1");
         ButtonElement.clickOnButtonXpath("//button[@name='button_validate']");
         commonPage.waitForPageToLoad();
         baseElementLocator.getWebElement("Xpath", "//a[text()='" + orderName + "']").click();
 
-        ButtonElement.clickOnButtonXpath("//button[@id='create_invoice']");
-        RadioButtonElement.selectRadioButtonByDataValue("delivered");
-        ButtonElement.clickOnButtonXpath("//button[@id='create_invoice_open']");
+        ButtonElement.clickOnButtonXpath("//button[@name='create_invoice_delivered']");
         ButtonElement.clickOnButtonXpath("//button[@name='action_post']");
 
         //Try to find journal smart button
@@ -87,6 +85,7 @@ public class OrderTest extends BaseTest {
         commonPage.selectPageInTopBarMenuByDataXmlId("sale.sale_order_menu", "sale.menu_sale_order");
         commonPage.waitForPageToLoad();
 
+        commonPage.clickOnLinkByXpath("//div[contains(@class, 'o_searchview')]/descendant::*[contains(@class, 'o_facet_remove')]");
         commonPage.clickOnLinkByXpath("//td[text()='" + orderName + "']");
 
         Assert.assertTrue(Integer.parseInt(commonPage.getElementByXpath("//div[@name='move_line_count']/span[@class='o_stat_info o_stat_value']").getText()) > 1);

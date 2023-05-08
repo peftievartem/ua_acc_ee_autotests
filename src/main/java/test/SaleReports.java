@@ -15,7 +15,9 @@ public class SaleReports extends BaseTest {
         commonPage.appItemByDataXmlId("account_accountant.menu_accounting").click();
         commonPage.selectPageInTopBarMenuByDataXmlId("account.menu_finance_receivables", "account.menu_action_move_out_invoice_type");
 
-        commonPage.clickOnLinkByXpath("//table/tbody/tr[1]/td[2]");
+
+        commonPage.clickOnLinkByXpath("//div[contains(@class, 'o_searchview')]/descendant::*[contains(@class, 'o_facet_remove')]");
+        commonPage.clickOnLinkByXpath("//td[contains(@class, 'o_data_cell')]");
         ButtonElement.clickOnButtonXpath("//button[@data-hotkey='shift+u']");
         Assert.assertNotNull(commonPage.getElementByXpath("//span[(contains(@class, 'dropdown-item')) and (contains(text(), '" + vydatkovaNakladna + "'))]"));
         Assert.assertNotNull(commonPage.getElementByXpath("//span[(contains(@class, 'dropdown-item')) and (contains(text(), '" + aktVykonanykhRobit + "'))]"));

@@ -52,16 +52,16 @@ public class Constants {
 
 
     //content test data
-    public static final String constantCompanyAzure = "ТОВ Рожева Мрія";
+    public static final String constantCompanyAzure = "ТОВ \"Астарта\"";
     public static final String constantCompanyDecoAddict = "Епіцентр К";
-    public static final String constantVendorMitchellAdmin = "ТОВ Рожева Мрія";
+    public static final String constantNewCompany = "ТОВ Компанія ";
+    public static final String constantVendorMitchellAdmin = "ТОВ \"Астарта\"";
     public static final String constantProduct1 = "[FURN_5555] Коробка управління кабелем";
     public static final String constantProduct2 = "[FURN_8888] Офісна лампа";
-    public static final String constantService1 = "Витрати ресторану";
-    public static final String constantService2 = "Проживання в готелі";
+    public static final String constantService1 = "послуги бухгалтерські, інші";
     public static final int price1 = (int) (Math.random()*1000)*10;
-    public static final int price2 = (int) (Math.random()*1000)*10;
-    public static final String bank = "Укрсиббанк";
+    public static final int price2 = 60000;
+    public static final String bank = "Bank";
 
 
     //test to translate
@@ -72,6 +72,7 @@ public class Constants {
     public static final String aktVykonanykhRobit = "Акт виконаних робіт";
     public static final String rakhunokNaOplatu = "Рахунок на оплату";
     public static final String deliveryOrders = "Замовлення на доставку";
+    public static final String pershaPodiya = "Перша подія";
 
 
 

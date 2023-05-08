@@ -2,6 +2,7 @@ package test;
 
 import com.self.inject.Inject;
 import com.self.pages.*;
+import com.self.pages.elements.*;
 import com.self.utils.World;
 import com.self.utils.elements.BaseElementLocator;
 import org.testng.annotations.AfterClass;
@@ -16,6 +17,10 @@ public class BaseTest {
     World world;
 
     protected CommonPage commonPage = new CommonPage(world);
+    protected CompanyPageElements companyPageElements = new CompanyPageElements(world);
+    protected AccountingPageElements accountingPageElements = new AccountingPageElements(world);
+    protected SalesPageElements salesPageElements = new SalesPageElements(world);
+
     protected LoginPage loginPage = new LoginPage(world);
     DatabaseSelectorPage databaseSelectorPage = new DatabaseSelectorPage(world);
     protected BaseElementLocator baseElementLocator = new BaseElementLocator();

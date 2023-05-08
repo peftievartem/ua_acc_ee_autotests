@@ -15,15 +15,14 @@ public class WebDriverManager {
     public WebDriver setupDriver() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator + FileReaderManager.getInstance().getConfigReader().getDriverPath() + File.separator + "chromedriver");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
-        // Comment next 4 lines to have visible test run
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--window-size=1920,1080");
-        options.addArguments("--remote-allow-origins=*");
+        // Comment next 4 lines to have visible test run
+//        options.addArguments("--headless");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--window-size=1920,1080");
+//        options.addArguments("--remote-allow-origins=*");
         System.setProperty("webdriver.http.factory", "jdk-http-client");
         driver = new ChromeDriver(options);
-//        driver = new ChromeDriver();
         if (FileReaderManager.getInstance().getConfigReader().getBrowserWindowSize()) {
             driver.manage().window().maximize();
         }

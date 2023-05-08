@@ -3,14 +3,18 @@
 <suite name="Test Suite">
     <test name="User test">
         <classes>
-            <class name="test.PrepareTests"/>
-            <class name="test.CompareReport"/>
-            <class name="test.SaleReports"/>
-            <class name="test.Accounting.ContractTest"/>
-            <class name="test.Sale.OrderTest"/>
-            <class name="test.Purchase.PurchaseOrderTest"/>
-            <class name="test.Inventory.InventoryTest"/>
-<!--            <class name="test.Accounting.AccountablePersons"/> 372 type doc absent-->
+<!--            <class name="test.PrepareTests"/>-->
+<!--            <class name="test.CompareReport"/>-->
+<!--            <class name="test.SaleReports"/>-->
+<!--            <class name="test.Accounting.ContractTest"/>-->
+<!--            <class name="test.Sale.SaleOrderTest"/>-->
+<!--            <class name="test.Purchase.PurchaseOrderTest"/>-->
+<!--            <class name="test.Inventory.InventoryTest"/>-->
+            <class name="test.vat.ByContrAgentTest"/>
+<!--            <class name="test.vat.ByContractTest"/>-->
+<!--            <class name="test.vat.ByOrderTest"/>-->
+
+            <!--            <class name="test.Accounting.AccountablePersons"/> 372 type doc absent-->
         </classes>
     </test>
 </suite>

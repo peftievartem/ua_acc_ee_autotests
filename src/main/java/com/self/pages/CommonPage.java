@@ -13,9 +13,9 @@ import org.slf4j.LoggerFactory;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
-import static com.self.utils.Constants.APPS_URL;
-import static com.self.utils.Constants.BASE_URL;
+import static com.self.utils.Constants.*;
 import static java.lang.Thread.sleep;
 
 public class CommonPage extends BasePage {
@@ -174,30 +174,10 @@ public class CommonPage extends BasePage {
         commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", tableElementPath));
     }
 
-    public void selectTableCellWithoutFacet(String cellName) {
+    public boolean checkElementByXpath(String xpath) {
         commonMethods.waitForPageToLoad();
-        InputElement.setInputWithClassAttribute(searchInputPath, cellName);
-        baseElementLocator.getWebElement("ClassName", searchInputPath).sendKeys(Keys.chord(Keys.ENTER));
-        try {
-            commonMethods.waitUntilElementIsDisappeared(baseElementLocator.getWebElement("Xpath", tableElementPath));
-        } catch (Exception ignore) {
-        }
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", tableElementPath));
-    }
-
-    public void clickAddTableItem() {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", addTableItemPath));
-    }
-
-    public void clickOnLink(String linkName) {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(linkItemPath, linkName)));
-    }
-
-    public void clickOnLinkByClass(String linkClass) {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(linkClassItemPath, linkClass)));
+        List<WebElement> elems = baseElementLocator.getListWebElements("Xpath", xpath);
+        return elems.size() > 0;
     }
 
     public WebElement getElementByXpath(String xpath) throws InterruptedException {
@@ -215,52 +195,45 @@ public class CommonPage extends BasePage {
         sleep(1000);
     }
 
-    public void selectKanbanAction(String actionName) {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", kanbanRecordToggleButtonPath));
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(kanbanActionMenuItemPath, actionName)));
-    }
-
-    public void selectEntities(String entityOption) {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", filterDropDownPath));
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(dropdownMenuOptionPath, entityOption)));
-    }
-
     public String getDate(int monthDifference) {
         Format f = new SimpleDateFormat("MM/dd/yyyy");
         String strDate = f. format(new Date());
         String[] date = strDate.split("/");
-        int resultMonth = Integer.parseInt(date[0]) - monthDifference;
+        int resultMonth = Integer.parseInt(date[0]) + monthDifference;
         int resultYear = Integer.parseInt(date[2]);
         if(resultMonth < 1) {
             resultMonth = 12 + resultMonth;
             resultYear = resultYear - 1;
         }
+//        if(resultMonth < 10) {
+//            return "0" + resultMonth + "/01" + "/" + resultYear;
+//        } else {
+//            return resultMonth + "/01" + "/" + resultYear;
+//        }
+
         if(resultMonth < 10) {
-            return "0" + resultMonth + "/01" + "/" + resultYear;
+            return "01.0" + resultMonth + "." + resultYear;
         } else {
-            return resultMonth + "/01" + "/" + resultYear;
+            return "01." + resultMonth + "." + resultYear;
         }
     }
 
-    public String getElementWithNameAttributeText(String nameAttribute) {
-        commonMethods.waitForPageToLoad();
-        return baseElementLocator.getWebElement("Name", nameAttribute).getText();
-    }
+    public String getDateDay(int day, int monthDifference) {
+        Format f = new SimpleDateFormat("MM/dd/yyyy");
+        String strDate = f. format(new Date());
+        String[] date = strDate.split("/");
+        int resultMonth = Integer.parseInt(date[0]) + monthDifference;
+        int resultYear = Integer.parseInt(date[2]);
+        if(resultMonth < 1) {
+            resultMonth = 12 + resultMonth;
+            resultYear = resultYear - 1;
+        }
 
-    public void selectTableElementName(String tableElementName) {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(tableElementNamePath, tableElementName)));
-    }
-
-    public void selectTableElement(int tableElementIndex) {
-        commonMethods.waitForPageToLoad();
-        commonMethods.waitAndClickElement(baseElementLocator.getWebElement("Xpath", String.format(tableElement, tableElementIndex)));
-    }
-
-    public String getWebElementTextByName(String name) {
-        return baseElementLocator.getWebElement("Name", name).getText();
+        if(resultMonth < 10) {
+            return day + ".0" + resultMonth + "." + resultYear;
+        } else {
+            return  day + "." + resultMonth + "." + resultYear;
+        }
     }
 
     public void waitForPageToLoad() throws InterruptedException {
@@ -272,5 +245,11 @@ public class CommonPage extends BasePage {
         commonMethods.waitForPageToLoad();
         World.driver.get(APPS_URL);
         sleep(1000);
+    }
+
+    public void filterBy(String value) throws InterruptedException {
+        InputElement.setInput("//input[@class='o_searchview_input']", value);
+        baseElementLocator.getWebElement("Xpath", "//input[@class='o_searchview_input']").sendKeys(Keys.chord(Keys.ENTER));
+        commonMethods.waitForPageToLoad();
     }
 }

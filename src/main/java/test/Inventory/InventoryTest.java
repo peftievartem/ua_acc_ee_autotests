@@ -17,7 +17,7 @@ public class InventoryTest extends BaseTest {
         commonPage.waitForPageToLoad();
 
         baseElementLocator.getWebElement("Xpath", "//a/span[contains(text(),'" + deliveryOrders + "')]").click();
-        baseElementLocator.getWebElement("Xpath", "//*[contains(@class,'o_data_cell') and text()='outgoing shipment']").click();
+        baseElementLocator.getWebElement("Xpath", "//*[contains(@class,'o_data_cell') and contains(@name,'partner_id')][1]").click();
         NotebookElement.selectNotebookTab(additionalInfo);
         Assert.assertNotNull(baseElementLocator.getWebElement("Xpath", "//*[contains(@name,'action_print_report')]"));
     }

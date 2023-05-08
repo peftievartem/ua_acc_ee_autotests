@@ -3,9 +3,7 @@ package com.self.pages;
 import io.qameta.allure.Step;
 import com.self.utils.World;
 import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.DropDownElement;
 import com.self.utils.elements.InputElement;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
