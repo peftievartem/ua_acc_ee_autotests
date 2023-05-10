@@ -1,6 +1,6 @@
-package com.self.utils.elements;
+package com.selferp.utils.elements;
 
-import com.self.utils.CommonMethods;
+import com.selferp.utils.CommonMethods;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 

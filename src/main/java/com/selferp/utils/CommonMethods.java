@@ -1,4 +1,4 @@
-package com.self.utils;
+package com.selferp.utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 public class CommonMethods {
 

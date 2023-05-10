@@ -1,17 +1,8 @@
 package test.vat;
 
-import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.RadioButtonElement;
-import com.self.utils.elements.SelectElement;
-import com.self.utils.elements.InputElement;
 import io.qameta.allure.Description;
-import org.openqa.selenium.Keys;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.BaseTest;
-
-import static com.self.utils.Constants.*;
-import static com.self.utils.Constants.price1;
 
 public class InterfaceTest extends BaseTest {
 

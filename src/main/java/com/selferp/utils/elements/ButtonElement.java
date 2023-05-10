@@ -1,7 +1,7 @@
-package com.self.utils.elements;
+package com.selferp.utils.elements;
 
 import io.qameta.allure.Step;
-import com.self.utils.CommonMethods;
+import com.selferp.utils.CommonMethods;
 
 public class ButtonElement {
     static BaseElementLocator baseElementLocator = new BaseElementLocator();

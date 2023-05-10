@@ -1,6 +1,6 @@
-package com.self.utils.elements;
+package com.selferp.utils.elements;
 
-import com.self.utils.CommonMethods;
+import com.selferp.utils.CommonMethods;
 import io.qameta.allure.Step;
 
 public class NotebookElement {

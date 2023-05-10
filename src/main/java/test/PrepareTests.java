@@ -1,12 +1,10 @@
 package test;
 
-import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.InputElement;
-import com.self.utils.elements.RadioButtonElement;
+import com.selferp.utils.elements.ButtonElement;
+import com.selferp.utils.elements.RadioButtonElement;
 import io.qameta.allure.Description;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 public class PrepareTests extends BaseTest {
 

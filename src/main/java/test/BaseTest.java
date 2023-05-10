@@ -1,16 +1,16 @@
 package test;
 
-import com.self.inject.Inject;
-import com.self.pages.*;
-import com.self.pages.elements.*;
-import com.self.utils.World;
-import com.self.utils.elements.BaseElementLocator;
+import com.selferp.inject.Inject;
+import com.selferp.pages.*;
+import com.selferp.pages.elements.*;
+import com.selferp.utils.World;
+import com.selferp.utils.elements.BaseElementLocator;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 public class BaseTest {
     @Inject

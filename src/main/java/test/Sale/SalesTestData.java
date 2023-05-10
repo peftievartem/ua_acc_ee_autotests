@@ -1,6 +1,6 @@
 package test.Sale;
 
-import static com.self.utils.Constants.RANDOM_NUM;
+import static com.selferp.utils.Constants.RANDOM_NUM;
 
 public class SalesTestData {
     public static final String salesPricelistName = "Autotest Pricelist USD " + RANDOM_NUM;

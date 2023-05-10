@@ -1,12 +1,12 @@
 package test.Inventory;
 
 import io.qameta.allure.Description;
-import com.self.utils.elements.*;
+import com.selferp.utils.elements.*;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.BaseTest;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 public class InventoryTest extends BaseTest {
 

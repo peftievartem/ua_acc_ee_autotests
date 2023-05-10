@@ -1,12 +1,12 @@
 package test;
 
 import io.qameta.allure.Description;
-import com.self.utils.elements.*;
+import com.selferp.utils.elements.*;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static com.self.utils.Constants.constantCompanyAzure;
+import static com.selferp.utils.Constants.constantCompanyAzure;
 
 public class CompareReport extends BaseTest {
 

@@ -1,11 +1,11 @@
-package com.self.utils.listeners;
+package com.selferp.utils.listeners;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Attachment;
 import io.qameta.allure.Step;
 import io.qameta.allure.listener.TestLifecycleListener;
 import io.qameta.allure.model.TestResult;
-import com.self.utils.helpers.WebDriverManager;
+import com.selferp.utils.helpers.WebDriverManager;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +15,7 @@ import org.testng.ITestResult;
 
 import java.io.ByteArrayInputStream;
 
-import static com.self.utils.World.driver;
+import static com.selferp.utils.World.driver;
 
 public class TestAllureListener implements ITestListener, TestLifecycleListener {
 

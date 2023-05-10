@@ -1,7 +1,7 @@
-package com.self.utils.elements;
+package com.selferp.utils.elements;
 
-import com.self.inject.Inject;
-import com.self.utils.World;
+import com.selferp.inject.Inject;
+import com.selferp.utils.World;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 

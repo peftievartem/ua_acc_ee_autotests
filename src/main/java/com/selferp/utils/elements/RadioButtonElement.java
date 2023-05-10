@@ -1,6 +1,6 @@
-package com.self.utils.elements;
+package com.selferp.utils.elements;
 
-import com.self.utils.CommonMethods;
+import com.selferp.utils.CommonMethods;
 
 public class RadioButtonElement {
     static BaseElementLocator baseElementLocator = new BaseElementLocator();

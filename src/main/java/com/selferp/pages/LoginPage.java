@@ -1,9 +1,9 @@
-package com.self.pages;
+package com.selferp.pages;
 
 import io.qameta.allure.Step;
-import com.self.utils.World;
-import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.InputElement;
+import com.selferp.utils.World;
+import com.selferp.utils.elements.ButtonElement;
+import com.selferp.utils.elements.InputElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

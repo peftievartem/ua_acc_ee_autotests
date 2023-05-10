@@ -5,10 +5,10 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import test.BaseTest;
 import io.qameta.allure.Description;
-import com.self.utils.elements.*;
+import com.selferp.utils.elements.*;
 import org.testng.Assert;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 // Розрахунки з підзвітними особами
 

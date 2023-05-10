@@ -1,9 +1,9 @@
-package com.self.pages;
+package com.selferp.pages;
 
-import com.self.inject.Inject;
-import com.self.utils.CommonMethods;
-import com.self.utils.World;
-import com.self.utils.elements.BaseElementLocator;
+import com.selferp.inject.Inject;
+import com.selferp.utils.CommonMethods;
+import com.selferp.utils.World;
+import com.selferp.utils.elements.BaseElementLocator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

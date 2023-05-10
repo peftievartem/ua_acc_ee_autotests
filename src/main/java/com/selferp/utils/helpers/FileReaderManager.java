@@ -1,4 +1,4 @@
-package com.self.utils.helpers;
+package com.selferp.utils.helpers;
 
 public class FileReaderManager {
     private static FileReaderManager fileReaderManager = new FileReaderManager();

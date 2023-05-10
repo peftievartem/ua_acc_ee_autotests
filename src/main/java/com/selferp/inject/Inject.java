@@ -1,4 +1,4 @@
-package com.self.inject;
+package com.selferp.inject;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

@@ -1,8 +1,8 @@
-package com.self.utils.listeners;
+package com.selferp.utils.listeners;
 
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
-import com.self.utils.helpers.WebDriverManager;
+import com.selferp.utils.helpers.WebDriverManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
@@ -17,7 +17,7 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
-import static com.self.utils.World.driver;
+import static com.selferp.utils.World.driver;
 
 public class TestResultListener extends TestListenerAdapter {
 

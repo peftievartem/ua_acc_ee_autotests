@@ -1,4 +1,4 @@
-package com.self.utils.helpers;
+package com.selferp.utils.helpers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

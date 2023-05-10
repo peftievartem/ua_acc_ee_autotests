@@ -1,14 +1,13 @@
 package test.Sale;
 
-import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.InputElement;
-import com.self.utils.elements.RadioButtonElement;
+import com.selferp.utils.elements.ButtonElement;
+import com.selferp.utils.elements.InputElement;
 import io.qameta.allure.Description;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import test.BaseTest;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 public class SaleOrderTest extends BaseTest {
 

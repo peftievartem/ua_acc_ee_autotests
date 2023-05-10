@@ -1,6 +1,6 @@
-package com.self.utils;
+package com.selferp.utils;
 
-import com.self.utils.helpers.FileReaderManager;
+import com.selferp.utils.helpers.FileReaderManager;
 
 
 public class Constants {

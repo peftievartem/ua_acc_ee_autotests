@@ -1,10 +1,10 @@
-package com.self.pages;
+package com.selferp.pages;
 
-import com.self.inject.Inject;
-import com.self.utils.CommonMethods;
-import com.self.utils.World;
-import com.self.utils.elements.BaseElementLocator;
-import com.self.utils.elements.InputElement;
+import com.selferp.inject.Inject;
+import com.selferp.utils.CommonMethods;
+import com.selferp.utils.World;
+import com.selferp.utils.elements.BaseElementLocator;
+import com.selferp.utils.elements.InputElement;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
@@ -15,7 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 import static java.lang.Thread.sleep;
 
 public class CommonPage extends BasePage {

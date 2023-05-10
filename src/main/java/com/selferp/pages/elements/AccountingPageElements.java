@@ -1,14 +1,12 @@
-package com.self.pages.elements;
+package com.selferp.pages.elements;
 
-import com.self.inject.Inject;
-import com.self.pages.CommonPage;
-import com.self.utils.World;
-import com.self.utils.elements.ButtonElement;
-import com.self.utils.elements.InputElement;
-import com.self.utils.elements.SelectElement;
-import org.openqa.selenium.Keys;
+import com.selferp.inject.Inject;
+import com.selferp.pages.CommonPage;
+import com.selferp.utils.World;
+import com.selferp.utils.elements.ButtonElement;
+import com.selferp.utils.elements.InputElement;
 
-import static com.self.utils.Constants.*;
+import static com.selferp.utils.Constants.*;
 
 public class AccountingPageElements extends CommonPage {
 

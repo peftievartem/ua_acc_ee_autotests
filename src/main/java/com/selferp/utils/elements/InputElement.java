@@ -1,7 +1,6 @@
-package com.self.utils.elements;
+package com.selferp.utils.elements;
 
-import com.self.utils.CommonMethods;
-import org.openqa.selenium.WebElement;
+import com.selferp.utils.CommonMethods;
 
 public class InputElement {
     static BaseElementLocator baseElementLocator = new BaseElementLocator();
