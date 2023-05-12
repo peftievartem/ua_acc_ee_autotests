@@ -21,7 +21,7 @@ public class CompanyPageElements extends CommonPage {
     public String createNewCompany(String firstEvent) throws InterruptedException {
         commonPage.gotoAppsPage();
         commonPage.appItemByDataXmlId("contacts.menu_contacts").click();
-        if (commonPage.getElementByXpath("//i[@aria-label='Remove']") != null)
+        if (commonPage.checkElementByXpath("//i[@aria-label='Remove']"))
             commonPage.clickOnLinkByXpath("//i[@aria-label='Remove']");
         ButtonElement.clickOnButtonByClass("o-kanban-button-new");
         if (!firstEvent.isEmpty()) {

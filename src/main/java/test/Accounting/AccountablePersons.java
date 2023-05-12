@@ -36,7 +36,7 @@ public class AccountablePersons  extends BaseTest {
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addALine + "']");
         InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_id']/descendant::input", serviceElem);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price));
-        if (commonPage.getElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']") != null)
+        if (commonPage.checkElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']"))
             commonPage.clickOnLinkByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']");
         InputElement.setInputForDateTimePickerXpath("//input[@id='invoice_date']", commonPage.getDate(0));
         commonPage.waitForPageToLoad();

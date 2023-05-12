@@ -97,15 +97,6 @@ public class CommonPage extends BasePage {
         return baseElementLocator.getWebElement("Xpath", topbarNamePath);
     }
 
-    public boolean isElementInTable(String elementName) {
-        commonMethods.waitForPageToLoad();
-        for (WebElement cell : baseElementLocator.getListWebElements("Xpath", tableElementPath)) {
-            if (cell.getText().equals(elementName))
-                return true;
-        }
-        return false;
-    }
-
     public String getModalWarningPath() {
         commonMethods.waitForPageToLoad();
         return baseElementLocator.getWebElement("Xpath", modalWarningPath).getText();
@@ -251,5 +242,11 @@ public class CommonPage extends BasePage {
         InputElement.setInput("//input[@class='o_searchview_input']", value);
         baseElementLocator.getWebElement("Xpath", "//input[@class='o_searchview_input']").sendKeys(Keys.chord(Keys.ENTER));
         commonMethods.waitForPageToLoad();
+    }
+
+    public float priceToFloat(String grn) {
+        String price = grn.replace(" ", "");
+        price = price.replace(",", ".");
+        return Float.parseFloat(price.substring(0, price.length()-2));
     }
 }

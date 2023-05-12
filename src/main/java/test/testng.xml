@@ -9,10 +9,12 @@
 <!--            <class name="test.Accounting.ContractTest"/>-->
 <!--            <class name="test.Sale.SaleOrderTest"/>-->
 <!--            <class name="test.Purchase.PurchaseOrderTest"/>-->
-<!--            <class name="test.Inventory.InventoryTest"/>-->
-            <class name="test.vat.ByContrAgentTest"/>
+<!--            <class name="test.Inventory.TtnReportTest"/>-->
+<!--            <class name="test.vat.InterfaceTest"/>-->
+<!--            <class name="test.vat.ByContrAgentTest"/>-->
 <!--            <class name="test.vat.ByContractTest"/>-->
-<!--            <class name="test.vat.ByOrderTest"/>-->
+            <class name="test.vat.ByOrderTest"/>
+<!--            <class name="test.vat.PointOfSaleTest"/>-->
 
             <!--            <class name="test.Accounting.AccountablePersons"/> 372 type doc absent-->
         </classes>

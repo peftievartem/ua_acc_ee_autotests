@@ -8,7 +8,7 @@ import test.BaseTest;
 
 import static com.selferp.utils.Constants.*;
 
-public class InventoryTest extends BaseTest {
+public class TtnReportTest extends BaseTest {
 
     @Test()
     @Description("Create TTN Report")

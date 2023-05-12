@@ -14,7 +14,7 @@ public class ByContractTest extends BaseTest {
     // We need configure VAT in configurations and Plan of accounts
 
     @Test(priority = 1)
-    @Description("VAT by Contract")
+    @Description("VAT first position by contract")
     public void testVatByContract() throws InterruptedException {
 
 

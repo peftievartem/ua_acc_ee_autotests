@@ -30,7 +30,7 @@ public class PurchaseOrderTest extends BaseTest {
         commonPage.waitForPageToLoad();
         InputElement.setInputDropdownWithoutButtonByXpath("//td[@name='product_id']/descendant::input", constantService1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
-        if (commonPage.getElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']") != null)
+        if (commonPage.checkElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']"))
             commonPage.clickOnLinkByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']");
         ButtonElement.clickOnButtonXpath("//button[@name='button_confirm']");
 

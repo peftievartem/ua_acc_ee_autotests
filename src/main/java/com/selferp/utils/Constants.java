@@ -73,6 +73,14 @@ public class Constants {
     public static final String rakhunokNaOplatu = "Рахунок на оплату";
     public static final String deliveryOrders = "Замовлення на доставку";
     public static final String pershaPodiya = "Перша подія";
+    public static final String stvorytyNakladnu = "Створити податкову накладну";
+    public static final String vatPayer = "Платник ПДВ";
+    public static final String vatFirstEvent = "Перша подія";
+    public static final String vatSum = "Сума ПДВ";
+
+
+
+
 
 
 

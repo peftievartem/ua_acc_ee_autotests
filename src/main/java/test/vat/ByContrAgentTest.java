@@ -11,10 +11,8 @@ import static com.selferp.utils.Constants.*;
 
 public class ByContrAgentTest extends BaseTest {
 
-    // We need configure VAT in configurations and Plan of accounts
-
     @Test(priority = 1)
-    @Description("VAT by ContrAgent")
+    @Description("VAT first position by contrAgent")
     public void testAccountingInTermsOrders() throws InterruptedException {
 
         String companyName = companyPageElements.createNewCompany("in_general");

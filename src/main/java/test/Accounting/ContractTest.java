@@ -121,7 +121,7 @@ public class ContractTest extends BaseTest {
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addAProduct + "']");
         InputElement.setInputDropdownWithoutButtonByXpath("//div[@name='product_template_id']/descendant::input", constantProduct1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
-        if (commonPage.getElementByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']") != null)
+        if (commonPage.checkElementByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']"))
             commonPage.clickOnLinkByXpath("//div[@name='tax_id']/descendant::*[@aria-label='Delete']");
         InputElement.setInputForDateTimePickerXpath("//input[@id='validity_date']", commonPage.getDate(0));
         ButtonElement.clickOnButtonXpath("//button[@name='action_confirm']");
@@ -261,7 +261,7 @@ public class ContractTest extends BaseTest {
         commonPage.clickOnLinkByXpath("//table/descendant::*[text()='" + addAProduct + "']");
         InputElement.setInputDropdownWithoutButtonByXpath("//td[@name='product_id']/descendant::input", constantService1);
         InputElement.setInput("//div[contains(@name,'price_unit')]/input", String.valueOf(price1));
-        if (commonPage.getElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']") != null)
+        if (commonPage.checkElementByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']"))
             commonPage.clickOnLinkByXpath("//div[@name='taxes_id']/descendant::*[@aria-label='Delete']");
         ButtonElement.clickOnButtonXpath("//button[@name='button_confirm']");
         ButtonElement.clickOnButtonXpath("//button[@name='action_create_invoice']");
